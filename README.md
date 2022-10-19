@@ -3,10 +3,10 @@
 - I need chatting server.
 
 ## Stack
-- C# (.Net Framework 4.7.2)
+- C# (.NET 6)
 
 ## Period 
-- 2022-05-20 ~ present
+- 2022-10-20 ~ present
 
 ## Difficulties
 - none
