@@ -13,3 +13,6 @@
 
 ## Result
 - Start
+
+## Reference
+- [c# 채팅프로그램 만들기 - 1 - 소켓통신(TcpListener, TcpClient)](https://frozenpond.tistory.com/2)

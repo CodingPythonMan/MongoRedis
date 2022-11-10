@@ -27,12 +27,14 @@ namespace Server.Services
             TcpClient client = server.AcceptTcpClient();
 
             byte[] byteData = new byte[1024];
-            
 
             while (true)
             {
-                client.GetStream().Read(byteData, 0, byteData.Length);
-                Console.WriteLine(Encoding.Default.GetString(byteData));
+                if(client.Available > 0)
+                {
+                    client.GetStream().Read(byteData, 0, byteData.Length);
+                    Console.WriteLine(Encoding.Default.GetString(byteData));
+                }
                 Task.Delay(1000).Wait();
             }
         }
