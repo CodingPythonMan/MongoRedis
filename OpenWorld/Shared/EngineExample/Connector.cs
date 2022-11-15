@@ -5,7 +5,7 @@ using System.Net;
 using System.Net.Sockets;
 using System.Threading.Tasks;
 
-namespace Core.Server
+namespace Shared.EngineExample
 {
     public class Connector
     {

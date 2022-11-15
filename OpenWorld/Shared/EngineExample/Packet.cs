@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Core.Server
+namespace Shared.EngineExample
 {
     public static class PacketExtension
     {

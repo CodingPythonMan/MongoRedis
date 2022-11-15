@@ -4,7 +4,7 @@ using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
-namespace Core.Server
+namespace Shared.EngineExample
 {
     public class SendBufferHelper
     {

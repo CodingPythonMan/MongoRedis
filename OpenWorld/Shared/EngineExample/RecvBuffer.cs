@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace Core.Server
+namespace Shared.EngineExample
 {
     public class RecvBuffer
     {
