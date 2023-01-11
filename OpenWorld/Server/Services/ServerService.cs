@@ -25,13 +25,14 @@ namespace Server.Services
             server.Start();
 
             TcpClient client = server.AcceptTcpClient();
-
-            byte[] byteData = new byte[1024];
+            Console.WriteLine("클라이언트가 접속하였습니다!");
 
             while (true)
             {
-                if(client.Available > 0)
+                if (client.Available > 0)
                 {
+                    byte[] byteData = new byte[1024];
+
                     client.GetStream().Read(byteData, 0, byteData.Length);
                     Console.WriteLine(Encoding.Default.GetString(byteData));
                 }
