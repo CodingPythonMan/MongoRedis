@@ -13,9 +13,10 @@ ObjectId id = me.Id;
 var result = userService.FindById(id);
 
 // 최신 검색한 id 를 저장 후, 해당 값 찾아오기
-//var latestSearchUser = cacheService.LatestUser();
+var latestUser = cacheService.LatestSearchUser();
 
 if(result is not null)
 {
     Console.WriteLine(result.ToString());
+    Console.WriteLine("[최신 검색 유저] : " + latestUser);
 }

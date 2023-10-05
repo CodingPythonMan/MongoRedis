@@ -9,6 +9,7 @@ namespace TextQuest.Service
         private DBService _dbService;
         private IMongoDatabase? _db;
         private IMongoCollection<User>? _users;
+        private CacheService _cache = null!;
 
         public UserService()
         {
@@ -19,6 +20,7 @@ namespace TextQuest.Service
                 return;
 
             _users = _db.GetCollection<User>("Users");
+            _cache = CacheService.Instance;
         }
 
         public void AddUser(User user)
@@ -32,6 +34,8 @@ namespace TextQuest.Service
         public User FindById(ObjectId id)
         {
             var result = _users.Find(x => x.Id == id).FirstOrDefault();
+
+            _cache.RegisterSearchUser(result);
 
             return result;
         }
