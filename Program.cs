@@ -1,36 +1,21 @@
-﻿using MongoDB.Driver;
-using MongoDB.Bson;
+﻿using MongoDB.Bson;
+using TextQuest.Model;
+using TextQuest.Service;
 
-string connString = "mongodb://localhost";
+UserService userService = new UserService();
+CacheService cacheService = CacheService.Instance;
 
-MongoClient cli = new MongoClient(connString);
+User me = new User { Name = "Kim", Age = 20 };
+userService.AddUser(me);
 
-// testdb 라는 데이터 베이스 가져오기
-var testdb = cli.GetDatabase("testdb");
-
-var customers = testdb.GetCollection<Customer>("Customers");
-
-Customer cust1 = new Customer { Name = "Kim", Age = 30 };
-customers.InsertOne(cust1);
-ObjectId id = cust1.Id;
-
+ObjectId id = me.Id;
 // Select - ID 로 검색
-var result = customers.Find( x => x.Id == id).FirstOrDefault();
+var result = userService.FindById(id);
+
+// 최신 검색한 id 를 저장 후, 해당 값 찾아오기
+//var latestSearchUser = cacheService.LatestUser();
 
 if(result is not null)
 {
     Console.WriteLine(result.ToString());
-}
-
-class Customer
-{
-    public ObjectId Id { get; set; }
-    public string Name { get; set; } = null!;
-
-    public int Age { get; set; }
-
-    public override string ToString()
-    {
-        return Name + " " + Age;
-    }
 }
